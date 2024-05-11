@@ -78,7 +78,7 @@ runs:
           cd ${{ inputs.theos-dir }}/sdks
           wget --no-verbose ${{ inputs.theos-sdks }}/archive/${{ inputs.theos-sdks-branch }}.zip
           TMP=$(mktemp -d)
-          unzip ${{ inputs.theos-sdks-branch }}.zip -o$TMP
+          unzip ${{ inputs.theos-sdks-branch }}.zip -o $TMP
           mv $TMP/*-${{ inputs.theos-sdks-branch }}/*.sdk $THEOS/sdks
           rm -r ${{ inputs.theos-sdks-branch }}.zip $TMP
         fi
