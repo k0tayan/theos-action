@@ -40,7 +40,7 @@ runs:
     - name: Setup (Linux)
       shell: bash
       if: runner.os == 'Linux'
-      run: sudo apt install build-essential fakeroot libtinfo5 libz3-dev rsync curl perl unzip git libplist-utils
+      run: sudo apt install build-essential fakeroot libtinfo5 libz3-dev rsync curl perl unzip git libplist-utils p7zip
 
     - name: Setup environment
       shell: bash
