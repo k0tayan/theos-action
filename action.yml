@@ -40,7 +40,7 @@ runs:
     - name: Setup (Linux)
       shell: bash
       if: runner.os == 'Linux'
-      run: sudo apt update && sudo apt install build-essential fakeroot libtinfo5 libz3-dev rsync curl perl unzip git libplist-utils p7zip-full
+      run: sudo apt update && apt install build-essential fakeroot libtinfo5 libz3-dev rsync curl perl unzip git libplist-utils
 
     - name: Setup environment
       shell: bash
@@ -78,7 +78,7 @@ runs:
           cd ${{ inputs.theos-dir }}/sdks
           wget --no-verbose ${{ inputs.theos-sdks }}/archive/${{ inputs.theos-sdks-branch }}.zip
           TMP=$(mktemp -d)
-          7z x ${{ inputs.theos-sdks-branch }}.zip -o$TMP
+          unzip ${{ inputs.theos-sdks-branch }}.zip -o$TMP
           mv $TMP/*-${{ inputs.theos-sdks-branch }}/*.sdk $THEOS/sdks
           rm -r ${{ inputs.theos-sdks-branch }}.zip $TMP
         fi
